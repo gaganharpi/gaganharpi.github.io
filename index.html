@@ -1,38 +1,636 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portofolio SEO | Gagan Harpiawan</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Gagan Harpiawan</h1>
-    <p>SEO Specialist | Content Strategist | Digital Growth Enthusiast</p>
-  </header>
+/* Base Styles */
+:root {
+  --background: #0f172a;
+  --background-secondary: #1e293b;
+  --foreground: #f8fafc;
+  --foreground-secondary: #94a3b8;
+  --primary: #38bdf8;
+  --primary-dark: #0284c7;
+  --secondary: #14b8a6;
+  --secondary-dark: #0d9488;
+  --border: #334155;
+  --border-light: rgba(51, 65, 85, 0.5);
+  --card-bg: rgba(30, 41, 59, 0.3);
+  --card-border: rgba(51, 65, 85, 0.5);
+}
 
-  <section>
-    <h2>About Me</h2>
-    <p>Hi! I'm an SEO Specialist who’s passionate about helping websites grow organically and get found on search engines. I love digging into keyword research, improving content, and finding smart ways to boost rankings and traffic. Whether it’s on-page tweaks, technical audits, or link strategies, I enjoy making data-driven decisions that actually move the needle. Always curious, always learning—especially when Google decides to shake things up!.</p>
-  </section>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <section>
-    <h2>Project & Case Study</h2>
-    <ul>
-      <li><strong>Website MetaNesia:</strong> Increased monthly website visitors from 500 to 2,000 within just three months by implementing a well-planned pillar content strategy that focused on creating comprehensive, valuable, and highly relevant content to attract and engage the target audience effectively.</li>
-      <li><strong>Website Indibiz.co.id:</strong> As the SEO Specialist at Indibiz.co.id, I successfully boosted our website’s monthly visitors from 500 to 2,000 within three months by designing and executing a strategic pillar content plan. This approach focused on creating in-depth, relevant, and valuable content tailored to our target audience, which helped improve our search rankings, increase organic traffic, and strengthen Indibiz’s online presence in the competitive digital solutions market.</li>
-    </ul>
-  </section>
+html {
+  scroll-behavior: smooth;
+}
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: gagan@email.com</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/gaganharpiawan" target="_blank">linkedin.com/in/gaganharpiawan</a></p>
-  </section>
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--foreground);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-  <footer>
-    <p>© 2025 Gagan Harpiawan. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Background */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+}
+
+.fixed-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  filter: blur(3rem);
+  opacity: 0.1;
+  animation: blob 7s infinite;
+}
+
+.blob-1 {
+  top: -10rem;
+  left: -10rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: #a855f7; /* Purple */
+}
+
+.blob-2 {
+  top: 0;
+  right: -5rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: #3b82f6; /* Blue */
+  animation-delay: 2s;
+}
+
+.blob-3 {
+  bottom: 10rem;
+  left: 5rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: #14b8a6; /* Teal */
+  animation-delay: 4s;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  background-color: rgba(15, 23, 42, 0.7);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--secondary);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  transition: color 0.3s;
+}
+
+.social-icon:hover {
+  color: var(--secondary);
+}
+
+.hero {
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--foreground-secondary);
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    to right,
+    var(--primary-dark),
+    var(--secondary-dark)
+  );
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background-color: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(30, 41, 59, 0.9);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container {
+  position: relative;
+  width: 16rem;
+  height: 16rem;
+  margin: 0 auto;
+}
+
+.icon-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    to right,
+    var(--primary-dark),
+    var(--secondary-dark)
+  );
+  filter: blur(2rem);
+  opacity: 0.2;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.icon-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  background-color: rgba(30, 41, 59, 0.5);
+  border: 1px solid var(--border-light);
+  padding: 0.5rem;
+}
+
+.icon-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-icon {
+  color: var(--secondary);
+  opacity: 0.8;
+}
+
+section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-content {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.glass-card {
+  backdrop-filter: blur(12px);
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s;
+}
+
+.about-text {
+  color: var(--foreground-secondary);
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.skill-card {
+  backdrop-filter: blur(12px);
+  background-color: rgba(30, 41, 59, 0.5);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-light);
+  transition: border-color 0.3s;
+}
+
+.skill-card:hover {
+  border-color: var(--secondary);
+}
+
+.skill-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.2),
+    rgba(20, 184, 166, 0.2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+}
+
+.skill-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.skill-description {
+  color: var(--foreground-secondary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.project-card {
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary);
+}
+
+.project-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.project-card:hover .project-title {
+  color: var(--secondary);
+}
+
+.project-metric {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(20, 184, 166, 0.2);
+  color: var(--secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.project-description {
+  color: var(--foreground-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(30, 41, 59, 0.5);
+  font-size: 0.875rem;
+}
+
+.contact-card {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.contact-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.2),
+    rgba(20, 184, 166, 0.2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+}
+
+.contact-label {
+  font-size: 0.875rem;
+  color: var(--foreground-secondary);
+}
+
+.contact-value {
+  transition: color 0.3s;
+}
+
+.contact-value:hover {
+  color: var(--secondary);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(30, 41, 59, 0.5);
+  border: 1px solid var(--border-light);
+  color: var(--foreground);
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--secondary);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.copyright {
+  color: var(--foreground-secondary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-icon {
+  color: var(--foreground-secondary);
+  transition: color 0.3s;
+}
+
+.footer-icon:hover {
+  color: var(--secondary);
+}
+
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero-text {
+    width: 50%;
+  }
+
+  .hero-image {
+    width: 50%;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
